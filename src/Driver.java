@@ -6,8 +6,8 @@ public class Driver {
     Scanner sc =new Scanner(System.in);
     void  create ()
     {
-        int num1 =0;
-        String str1=null;
+        int num1;
+        String str1;
         System.out.println("Enter number : ");
         num1=sc.nextInt();
         System.out.println("Enter name : ");
@@ -20,7 +20,7 @@ public class Driver {
         else {
             runner.next=temp;
         }
-        temp=null;
+      
     }
 
    void displayAll()
@@ -36,6 +36,24 @@ public class Driver {
            }
            runner.print();
        }
+   }
+
+   void reverseLinkedList_I ()
+   {
+       if(head == null || head.next == null){
+           return;
+       }
+        Node prev = head;
+        Node current = head.next;
+        while(current !=null){
+            Node nextNode = current.next;
+            current.next=prev;
+            prev = current;
+            current=nextNode;
+        }
+        head.next=null;          //head is still pointing to next node
+        head=prev;
+
    }
 
 }
