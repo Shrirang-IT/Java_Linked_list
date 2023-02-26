@@ -7,11 +7,14 @@ public class Main {
         int choice = 1;
         while (choice !=0)
         {
-            System.out.println("Enter your choice : ");
+
             System.out.println("Case 1 : Create LL");
             System.out.println("Case 2 : Display LL");
             System.out.println("Case 3 : Reverse a Linked List ");
+            System.out.println("Case 4 : Recurssive Reverse");
+            System.out.println("Case 5 : Delete ");
             System.out.println("Case 0 : Exit");
+            System.out.print("Enter your choice : ");
             Scanner sc =new Scanner(System.in);
             choice =sc.nextInt();
 
@@ -24,6 +27,8 @@ public class Main {
                           driver.displayAll();
                           driver.reverseLinkedList_I();
                     }
+                case 4 -> driver.execute();
+                case 5 -> driver.deleteNode();
                 case 0 -> System.out.println("Thank you !!");
             }
             }

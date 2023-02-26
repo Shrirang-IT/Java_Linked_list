@@ -1,7 +1,7 @@
 public class Node {
 
-    private int variableInt ;
-    private String name ;
+    public int variableInt ;
+    public String name ;
 
     public Node next ;
 

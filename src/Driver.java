@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
-public class Driver {
+public class Driver  {
 
-    Node head = null,runner=null ;
+      Node head = null,runner=null ;
     Scanner sc =new Scanner(System.in);
+
     void  create ()
     {
         int num1;
@@ -19,6 +20,7 @@ public class Driver {
         }
         else {
             runner.next=temp;
+            runner=runner.next;
         }
 
     }
@@ -54,6 +56,47 @@ public class Driver {
         head.next=null;          //head is still pointing to next node
         head=prev;
 
+   }
+
+   Node reverseRecurrsion(Node head){
+        if (head == null || head.next == null){
+            return head ;
+        }
+        Node newnode = reverseRecurrsion(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newnode;
+   }
+
+   void execute(){
+        head = reverseRecurrsion(head);
+        displayAll();
+        head=reverseRecurrsion(head);
+        displayAll();
+   }
+
+   void deleteNode() {                          //deleting nodes
+       int delNum;
+       runner=head;
+       System.out.print("Enter the number to be deleted :  ");
+       delNum = sc.nextInt();
+       if (runner == null) {
+           System.out.println("No list");
+       } else if (runner.variableInt == delNum) {
+           head = null;
+           System.out.println("Node Deleted");
+
+       } else {
+           while (runner.next != null) {
+               if (runner.next.variableInt==delNum  ) {
+                   System.out.println(runner.next.variableInt);
+                   runner.next = runner.next.next;
+                   System.out.println(delNum + " deleted");
+                    return;
+               }
+           }
+
+       }
    }
 
 }
